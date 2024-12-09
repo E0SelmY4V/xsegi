@@ -1,0 +1,58 @@
+{
+	"$schema": "https://json.schemastore.org/package",
+	"private": true,
+	"name": "accurtype",
+	"description": "accurtype",
+	"license": "MIT",
+	"author": "accurtype",
+	"repository": {
+		"url": "git+https://github.com/accurtype/monodemo",
+		"type": "git"
+	},
+	"type": "module",
+	"scripts": {
+		"runall": "pnpm -F=config -F=./packages/* -F=docs",
+		"prepare": "husky",
+		"prepareall": "pnpm runall prepare",
+		"cz": "pnpm lint && cz",
+		"prefmt": "prettier -w .",
+		"fmt": "eslint . --fix",
+		"prelint": "prettier -c .",
+		"lint": "eslint .",
+		"build": "pnpm runall build",
+		"clean": "pnpm runall clean",
+		"test": "pnpm runall test"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^19.6.0",
+		"@types/tape": "^5.6.5",
+		"c8": "^10.1.2",
+		"colortape": "^0.1.2",
+		"commitizen": "^4.3.1",
+		"cz-customizable": "^7.3.0",
+		"eslint": "^9.16.0",
+		"husky": "^9.1.7",
+		"prettier": "^3.4.2",
+		"serve": "^14.2.4",
+		"tape": "^5.9.0",
+		"tsx": "^4.19.2",
+		"typescript": "^5.7.2"
+	},
+	"config": {
+		"cz-customizable": {
+			"config": "./config/cz-config.cjs"
+		},
+		"commitizen": {
+			"path": "node_modules/cz-customizable"
+		}
+	},
+	"prettier": {
+		"printWidth": 200,
+		"tabWidth": 4,
+		"useTabs": true,
+		"semi": true,
+		"singleQuote": true,
+		"jsxSingleQuote": false,
+		"trailingComma": "all"
+	}
+}
